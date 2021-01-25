@@ -96,9 +96,10 @@
         android:layout_height="0dp"
         android:overScrollMode="never"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintVertical_bias="0.0"
+        tools:ignore="NotSibling"
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -247,12 +248,13 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/trending_background"
                 android:layout_marginTop="22dp"
+                android:background="@drawable/trending_background"
                 android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="@id/layoutSettings"
                 app:layout_constraintStart_toStartOf="@id/layoutEmail"
                 app:layout_constraintTop_toBottomOf="@id/layoutSettings">
+
                 <TextView
                     android:id="@+id/textTrending"
                     android:layout_width="wrap_content"
@@ -266,18 +268,17 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_favorite_border"
-                    app:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="@id/textTrending"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/textTrending"
-                    />
+                    app:tint="@color/colorWhite" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -288,12 +289,33 @@
                     android:text="@string/dummu_text"
                     android:textColor="@color/colorWhite"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/textTrending"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/textTrending" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemIconSize="30dp"
+        app:backgroundTint="@color/colorWhite"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/navigation_menu"
+        >
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintBottom_toBottomOf="@id/bottomNavigationView"
+            />
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
